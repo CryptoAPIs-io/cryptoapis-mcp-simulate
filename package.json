@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-simulate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MCP server for dry-run EVM transaction simulation via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",
