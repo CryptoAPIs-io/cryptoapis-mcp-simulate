@@ -6,12 +6,12 @@
     "url": "https://github.com/CryptoAPIs-io/cryptoapis-mcp-simulate",
     "source": "github"
   },
-  "version": "0.2.3",
+  "version": "0.3.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@cryptoapis-io/mcp-simulate",
-      "version": "0.2.3",
+      "version": "0.3.0",
       "transport": {
         "type": "stdio"
       },
