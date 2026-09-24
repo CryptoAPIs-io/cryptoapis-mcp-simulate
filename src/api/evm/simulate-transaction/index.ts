@@ -1,7 +1,6 @@
 import type { CryptoApisHttpClient, RequestMetadata } from "@cryptoapis-io/mcp-shared";
 
 export type SimulateTransactionInput = {
-    blockchain: string;
     network: string;
     fromAddress: string;
     toAddress?: string;

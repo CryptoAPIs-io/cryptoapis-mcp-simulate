@@ -6,12 +6,11 @@ import { credits as simulateCredits } from "./credits.js";
 
 export const simulateEvmTool: McpToolDef<typeof SimulateEvmToolSchema> = {
     name: "simulate_evm",
-    description: `Dry-run an EVM transaction without broadcasting it to the network. Returns estimated gas usage, execution success/failure, and any revert reason. Use this to validate transactions before signing and broadcasting — helpful for catching errors, estimating costs, and debugging contract interactions.`,
+    description: `Dry-run an Ethereum transaction without broadcasting it to the network (mainnet or sepolia only — this endpoint does not support other EVM chains). Returns estimated gas usage, execution success/failure, and any revert reason. Use this to validate transactions before signing and broadcasting — helpful for catching errors, estimating costs, and debugging contract interactions.`,
     credits: simulateCredits,
     inputSchema: SimulateEvmToolSchema,
     handler: (client: CryptoApisHttpClient, logger: McpLogger) => async (input: SimulateEvmToolInput) => {
         const result: RequestResult<unknown> = await simulateTransaction(client, {
-            blockchain: input.blockchain,
             network: input.network,
             fromAddress: input.fromAddress,
             toAddress: input.toAddress,
@@ -24,7 +23,6 @@ export const simulateEvmTool: McpToolDef<typeof SimulateEvmToolSchema> = {
 
         logger.logInfo({
             tool: "simulate_evm",
-            blockchain: input.blockchain,
             network: input.network,
             creditsConsumed: result.creditsConsumed,
             creditsAvailable: result.creditsAvailable,
