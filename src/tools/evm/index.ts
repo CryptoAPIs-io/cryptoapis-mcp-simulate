@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { SimulateEvmToolSchema, type SimulateEvmToolInput } from "./schema.js";
@@ -6,6 +7,8 @@ import { credits as simulateCredits } from "./credits.js";
 
 export const simulateEvmTool: McpToolDef<typeof SimulateEvmToolSchema> = {
     name: "simulate_evm",
+    title: "Simulate Ethereum transaction",
+    annotations: READ_ONLY_TOOL,
     description: `Dry-run an Ethereum transaction without broadcasting it to the network (mainnet or sepolia only — this endpoint does not support other EVM chains). Returns estimated gas usage, execution success/failure, and any revert reason. Use this to validate transactions before signing and broadcasting — helpful for catching errors, estimating costs, and debugging contract interactions.`,
     credits: simulateCredits,
     inputSchema: SimulateEvmToolSchema,
